@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+    <id>io.github.supermerill.SuperSlicer</id>
+    <launchable type="desktop-id">io.github.supermerill.SuperSlicer.desktop</launchable>
+    <provides>
+        <id>super-slicer.desktop</id>
+    </provides>
+    <name>SuperSlicer</name>
+    <summary>G-code generator for 3D printers (Prusa, Voron, Creality, etc.)</summary>
+    <developer_name>supermerill</developer_name>
+    <url type="homepage">https://github.com/supermerill/SuperSlicer</url>
+    <url type="help">https://github.com/supermerill/SuperSlicer/wiki</url>
+    <url type="bugtracker">https://github.com/supermerill/SuperSlicer/issues</url>
+    <metadata_license>0BSD</metadata_license>
+    <project_license>AGPL-3.0-only</project_license>
+    <content_rating type="oars-1.1" />
+    <requires>
+        <display_length compare="gt">768</display_length>
+    </requires>
+    <recommends>
+        <control>keyboard</control>
+        <control>pointing</control>
+    </recommends>
+    <provides>
+        <mediatype>text/x.gcode</mediatype>
+        <mediatype>model/stl</mediatype>
+        <mediatype>application/x-amf</mediatype>
+        <mediatype>application/prs.wavefront-obj</mediatype>
+        <mediatype>application/vnd.ms-3mfdocument</mediatype>
+    </provides>
+    <screenshots>
+        <screenshot type="default">
+            <image>
+                https://raw.githubusercontent.com/GreenCappuccino/io.github.supermerill.SuperSlicer/main/screenshots/calibration-voron-prusa-mini-2.5.59.2.png</image>
+            <caption>SUPERSLICER HAS BUILT-IN CALIBRATION TOOLS</caption>
+        </screenshot>
+    </screenshots>
+    <description>
+        <p>A PrusaSlicer fork (which is a slic3r fork) (previously Slic3r++)</p>
+        <p>SuperSlicer takes 3D models (STL, OBJ, AMF) and converts them into G-code instructions
+            for FFF printers or PNG layers for mSLA 3D printers. It's compatible with any modern
+            printer based on the RepRap toolchain which is running a firmware based on Marlin,
+            Prusa, Klipper, etc.</p>
+        <p>SuperSlicer is based on PrusaSlicer by Prusa Research. PrusaSlicer is based on Slic3r by
+            Alessandro Ranellucci and the RepRap community.</p>
+    </description>
+    <releases>
+        <release version="2.5.59.2" date="2023-04-04">
+            <description>
+                <p>Fix some serious bugs (and many other) for the 2.4 branch</p>
+                <p>bugfixes</p>
+                <ul>
+                    <li>Fix crash when slicing multiple objects</li>
+                    <li>fix crash when seam placement</li>
+                    <li>Fix mmu paint</li>
+                    <li>Fix double interior brim</li>
+                    <li>Fix autospeed: max print speed %</li>
+                    <li>don't unretract when wiping if using firmware retraction.</li>
+                    <li>Fix computation for empty layers. (mostly with raft)</li>
+                    <li>contiguous: allow paint &amp; Seam sphere for the base position.</li>
+                    <li>Fix seam sphere position when loading a project (again)</li>
+                    <li>Fix first layer z position in the gcode viewer.</li>
+                    <li>Profile: fix creality brace in filename.</li>
+                    <li>Fix search / unsaved changes for setting arrays</li>
+                    <li>Fix icon splashscreen</li>
+                    <li>fix string/empty custom variable</li>
+                    <li>scripted widget:</li> <!-- Nested lists are not supported -->
+                    <li>- Fix default reset of scripted widgets</li>
+                    <li>- now executed at conf load, to apply changes</li>
+                    <li>- fix refresh for float/&amp;percent</li>
+                    <li>- fixed ask_for_refresh() for non-bool</li>
+                    <li>wipetower with klipper: don't pass the extruder to SET_PRESSURE_ADVANCE if
+                        the extruder name is blank </li>
+                    <li>fix missing retraction when the lift is merged in start_gcode_manual &amp;
+                        no layer_gcode </li>
+                    <li>Fix milling post-process </li>
+                    <li>Fix gui not refreshing for 'single extruder mmu' tab </li>
+                    <li>Fix thinwall-merge to keep a real loop</li>
+                    <li>Fix for when the seam gap is too big for a very small loop.</li>
+                    <li>change download page from hardcoded prusa </li>
+                    <li>typos </li>
+                </ul>
+                <p>notes</p>
+                <p>I haven't tested the linux &amp; macos build (but the arm one a little).</p>
+                <p>The mac arm should run ok as-is, tell me if there is a problem with this one.</p>
+                <p>The mac intel version will ask you for permission. You may need to do xattr -cr
+                    /Applications/SuperSlicer.app.</p>
+                <p>For Windows automatic installer/updates:
+                    https://community.chocolatey.org/packages/superslicer . Note that it has some
+                    days of delay, for the validation process.</p>
+                <p>You can have daily builds in the action menu of github.</p>
+                <p>You can support me with the "sponsor" button</p>
+            </description>
+            <issues>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3128">#3128</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3115">#3115</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3106">#3106</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3090">#3090</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/2639">#2639</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3185">#3185</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3110">#3110</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3163">#3163</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3058">#3058</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3153">#3153</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3125">#3125</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3157">#3157</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/1052">#1052</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3135">#3135</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3126">#3126</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3144">#3144</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3175">#3175</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3073">#3073</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/2916">#2916</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/2739">#2739</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/2786">#2786</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3176">#3176</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3069">#3069</issue>
+                <issue url="https://github.com/supermerill/SuperSlicer/issues/3149">#3149</issue>
+            </issues>
+        </release>
+    </releases>
+</component>

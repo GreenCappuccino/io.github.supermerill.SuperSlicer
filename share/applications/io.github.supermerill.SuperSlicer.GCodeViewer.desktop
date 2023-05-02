@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=SuperSlicer G-Code Viewer
+Comment=G-code viewer of Slic3r
+Exec=/app/superslicer --gcodeviewer %F
+Icon=io.github.supermerill.SuperSlicer.GCodeViewer
+Terminal=false
+Type=Application
+MimeType=text/x.gcode;
+Categories=Graphics;3DGraphics;
+Keywords=3D;Printing;Slicer;

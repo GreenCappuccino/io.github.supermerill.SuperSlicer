@@ -1,0 +1,57 @@
+app-id: io.github.supermerill.SuperSlicer
+runtime: org.freedesktop.Platform
+runtime-version: "21.08"
+sdk: org.freedesktop.Sdk
+command: /app/superslicer
+# remove this desktop file suffix on stable release
+# desktop-file-name-suffix: " (Beta)"
+separate-locales: true
+finish-args:
+  - --share=ipc
+  #- --socket=wayland
+  #- --socket=fallback-x11
+  - --socket=x11
+  #- --device=dri
+  - --share=network
+  - --device=all
+  - --filesystem=home
+  - --filesystem=xdg-run/gvfs # make GnomeVFS accessible
+  - --filesystem=/run/media
+  - --filesystem=/media
+  # Set default certificate bundle
+  - --env=SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
+  # Allow SuperSlicer to own its session bus. 
+  - --own-name=io.github.supermerill.SuperSlicer.*
+  - --system-talk-name=org.freedesktop.UDisks2
+  - --talk-name=org.freedesktop.DBus.Introspectable.*
+  #- --talk-name=org.freedesktop.Flatpak
+  - --talk-name=io.github.supermerill.SuperSlicer.InstanceCheck.*
+
+modules:
+  - name: SuperSlicer
+    buildsystem: simple
+    build-commands:
+      - | # untar the tarball into the current directory
+        tar -xvf SuperSlicer*linux64*.tar -C .
+      - | # delete the tarball
+        rm SuperSlicer*linux64*.tar
+    post-install:
+      - | # install all relevant files
+        cp -rv . /app
+      - | # Copy locale files
+        mkdir -p /app/share/runtime/locale
+        cp -rdv /app/resources/localization/*/ /app/share/runtime/locale/
+      - | # Update MIME database
+        update-mime-database /app/share/mime
+    sources:
+      # SuperSlicer linux64 build
+      - type: archive
+        archive-type: zip
+        url: https://github.com/supermerill/SuperSlicer/releases/download/2.4.58.5/SuperSlicer_2.4.58.5_linux64_220924.tar.zip
+        sha256: 57dbb0e1d7393be6162b19e4ea6439909a716555adcaa583b0881451fbb32b02
+        size: 58597649
+      # Freedesktop-related files
+      - type: dir
+        path: share
+        dest: share
+
