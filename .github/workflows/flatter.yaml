@@ -45,7 +45,7 @@ jobs:
           echo "superslicer-flatter.greencappuccino.net" > CNAME
 
       - name: Build
-        uses: GreenCappuccino/flatter@main # TODO change to andyholmes/flatter@main when merged
+        uses: andyholmes/flatter@main
         with:
           files: |
             io.github.supermerill.SuperSlicer.yml
